@@ -40,15 +40,22 @@ public class Telephone implements Serializable {
         Scanner sc = new Scanner(System.in);
         String tel = null;
         boolean trouve = false;
-        while (trouve==false){
+        while (true){
             System.out.println("Quel est le numéro ? (xxx-xxx-xxxx)");
             tel = sc.next();
+            trouve = false;
             for (int i=0;i<tel.length();i++){
                 if (i==3||i==7){
                     if (tel.charAt(i)=='-'){
                         trouve=false;
                     }
                     else{
+                        trouve=false;
+                        i=tel.length()-1;
+                    }
+                }
+                if (i==11){
+                    if ((int)tel.charAt(i)>=46 || (int)tel.charAt(i)<=57){
                         trouve=true;
                     }
                 }
@@ -56,12 +63,11 @@ public class Telephone implements Serializable {
                     if ((int)tel.charAt(i)<46 || (int)tel.charAt(i)>57){
                         trouve=false;
                     }
-                    else{
-                        trouve=true;
-                    }
                 }
             }
+            if (trouve==true){
+                return tel;
+            }
         }
-        return tel;
     }
 }
