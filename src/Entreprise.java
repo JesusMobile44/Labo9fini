@@ -22,7 +22,7 @@ public class Entreprise implements Serializable {
 
     public void ajouterEntreprise(){
         System.out.println("  Entreprise : ");
-        nom= Contact.demanderString("    Nom : ");
+        nom= Contact.demanderString(Contact.demanderString("    Nom : "));
         getAdresse().ajouterAdresse();
     }
 
@@ -30,7 +30,7 @@ public class Entreprise implements Serializable {
         String input;
         System.out.println("  Entreprise : ");
         System.out.print("    Nom (" + nom+ ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             nom=input;
         }

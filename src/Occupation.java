@@ -22,7 +22,7 @@ public class Occupation implements Serializable {
 
     public void ajouterOccupation(){
         System.out.println("Occupation : ");
-        poste= Contact.demanderString("  Poste :");
+        poste= Contact.demanderString(Contact.demanderString("  Poste :"));
         getEntreprise().ajouterEntreprise();
     }
 
@@ -30,7 +30,7 @@ public class Occupation implements Serializable {
         String input;
         System.out.println("Occupation : ");
         System.out.print("  Poste (" + poste + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             poste=input;
         }

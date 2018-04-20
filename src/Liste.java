@@ -5,8 +5,10 @@ public class Liste{
     public static final Scanner sc = new Scanner(System.in);
     private static HashMap<String, Contact> map=new HashMap<>();
     private static Queue<Contact> queue=new LinkedList<>();
-    public static void main(String[] args) {
+    public static String[] listePays= new String[]{"CANADA", "USA", "MEXIQUE", "GUATEMALA", "BELIZE", "HONDURAS", "EL SALVADOR","NICARAGUA"};
+    public static String[] listeProvinceCanada= new String[]{"QUEBEC","ONTARIO","COLOMBIE-BRITANNIQUE","ALBERTA","NOUVELLE-ECOSSE","SASKATCHEWAN","MANITOBA","NOUVEAU-BRUNSWICK","TERRE-NEUVE-ET-LABRADOR","ILE-DU-PRINCE-EDOUARD"};
 
+    public static void main(String[] args) {
         int choixInt;
         System.out.println("Bienvenue!");
         while (true) {

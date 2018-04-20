@@ -85,13 +85,12 @@ public class Contact implements Serializable {
         System.out.println("Veuillez entrer les informations suivantes :");
         //CONTACT
         System.out.print("Prénom (" + prenom + ") : ");
-        input = Liste.sc.nextLine().trim();
-        input = Liste.sc.nextLine().trim();
+        input = demanderString(Liste.sc.nextLine().trim());
         if (!input.equals("")) {
             prenom = input;
         }
         System.out.print("Nom (" + nom + ") : ");
-        input = Liste.sc.nextLine().trim();
+        input = demanderString(Liste.sc.nextLine().trim());
         if (!input.equals("")) {
             nom = input;
         }
@@ -193,5 +192,28 @@ public class Contact implements Serializable {
             }
         }
         return mot;
+    }
+    public static int verifyCanada(String pays){
+        int canada=0;
+        pays = pays.toUpperCase();
+        for (int i=0;i<Liste.listePays.length;i++){
+            if (pays.equals(Liste.listePays[i])){
+                canada = 2;
+            }
+        }
+        if(pays.equals("CANADA")){
+            canada = 1;
+        }
+        return canada;
+    }
+    public static boolean verifyProvince(String province){
+        boolean exist = false;
+        province=province.toUpperCase();
+        for (int i=0;i<Liste.listeProvinceCanada.length;i++){
+            if (province.equals(Liste.listeProvinceCanada[i])){
+                exist=true;
+            }
+        }
+        return exist;
     }
 }

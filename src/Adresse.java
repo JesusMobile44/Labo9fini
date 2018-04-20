@@ -68,43 +68,63 @@ public class Adresse implements Serializable {
             app=input;
         }
         ville = Contact.demanderString("  Ville : ");
-        province = Contact.demanderString("  Province : ");
         pays = Contact.demanderString("  Pays : ");
+        while(Contact.verifyCanada(pays)==0){
+            pays = Contact.demanderString("  Pays : ");
+        }
+        province = Contact.demanderString("  Province : ");
+        if (Contact.verifyCanada(pays)==1){
+            while(Contact.verifyProvince(province)==false){
+                province = Contact.demanderString("  Province : ");
+            }
+        }
     }
 
     public void modifierAdresse(){
         String input;
         System.out.println("Adresse : ");
         System.out.print("  Numéro de porte (" + numP + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderInt(Liste.sc.nextLine().trim());
         //Contact.verifyInt(numP)
         if(!input.equals("")) {
             numP=input;
         }
         System.out.print("  Rue (" + rue + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             rue=input;
         }
         System.out.print("  Appartement (" + app + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             app=input;
         }
         System.out.print("  Ville (" + ville + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             ville=input;
         }
+        System.out.print("  Pays (" + pays + ") : ");
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
+        if(!input.equals("")) {
+            pays=input;
+        }
+        else{
+            while(Contact.verifyCanada(input)==0){
+                System.out.print("  Pays (" + pays + ") : ");
+                input=Contact.demanderString(Liste.sc.nextLine().trim());
+            }
+        }
         System.out.print("  Province (" + province + ") : ");
-        input=Liste.sc.nextLine().trim();
+        input=Contact.demanderString(Liste.sc.nextLine().trim());
         if(!input.equals("")) {
             province=input;
         }
-        System.out.print("  Pays (" + pays + ") : ");
-        input=Liste.sc.nextLine().trim();
-        if(!input.equals("")) {
-            pays=input;
+        else if (Contact.verifyCanada(input)==1){
+            while(Contact.verifyProvince(input)==false){
+                System.out.print("  Province (" + province + ") : ");
+                input=Contact.demanderString(Liste.sc.nextLine().trim());
+            }
         }
     }
 

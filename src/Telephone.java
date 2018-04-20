@@ -37,9 +37,9 @@ public class Telephone implements Serializable {
         }
     }
     public static String demanderTel(){
-        Scanner sc = new Scanner(System.in);
         String tel = null;
         boolean trouve = false;
+        Scanner sc = new Scanner(System.in);
         while (true){
             System.out.println("Quel est le numéro ? (xxx-xxx-xxxx)");
             tel = sc.next();
