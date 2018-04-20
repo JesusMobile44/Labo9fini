@@ -107,7 +107,7 @@ public class Liste{
                 System.exit(0);
                 break;
             default:
-                System.out.println("ERREUR: Entrez un choix valide (entre 1 et 7)");
+                System.out.println("ERREUR: Entrez un choix valide (entre 1 et 8)");
                 break;
         }
     }
